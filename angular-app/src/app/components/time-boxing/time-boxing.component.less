@@ -1,0 +1,105 @@
+@color_1: #1a0dab;
+@background_color_1: white;
+
+/*# sourceMappingURL=time-boxing.component.css.map */
+.container {
+	.clock{
+		text-align: center;
+		>div{
+			display: inline-block;
+		}
+	}
+	.meta {
+		padding: 5px 10%;
+	}
+	.table {
+		position: relative;
+		.row {
+			border-top: 0.5px solid lightgray;
+			-webkit-box-sizing: border-box;
+			box-sizing: border-box;
+			&:last-child {
+				border-bottom: 0.5px solid rgba(30, 30, 30, 0.8);
+			}
+		}
+		.boxes {
+			height: 100%;
+			background-image: repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.025), rgba(0, 0, 0, 0.025) 10px, rgba(10, 80, 15, 0.08) 10px, rgba(10, 80, 15, 0.08) 20px);
+			position: absolute;
+			top: 0;
+			left: 60px;
+			right: 0;
+			.card {
+                &.left {
+                    left: 0;
+                    right: 50%;
+                }
+                &.right {
+                    left: 50%;
+                    right: 0;
+                }
+				&:hover {
+					z-index: 10;
+				}
+				background: white;
+				border: 0.5px solid lightgray;
+				width: 50%;
+				margin-left: auto;
+				margin-right: auto;
+				-webkit-box-sizing: border-box;
+				box-sizing: border-box;
+				position: absolute;
+				overflow: hidden;
+				text-align: center;
+				.title {
+					text-align: center;
+					cursor: pointer;
+					&:hover {
+						color: @color_1;
+						text-decoration: underline;
+					}
+				}
+			}
+			.event {
+                &.left {
+                    left: 0;
+                    text-align: left;
+                }
+                &.right {
+                    right: 0;
+                    text-align: right;
+                }
+				&:hover {
+					overflow: visible;
+					z-index: 10;
+				}
+				background: transparent;
+				border-top: 0.5px solid red;
+				width: 40%;
+				margin-left: auto;
+				margin-right: auto;
+				-webkit-box-sizing: border-box;
+				box-sizing: border-box;
+				position: absolute;
+				overflow: visible;
+				z-index: 5;
+				height: 1px;
+				.title {
+                    // border: 0.5px solid green;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    max-width: 100%;
+                    text-align: inherit;
+                    height: 16px;
+                    line-height: 16px;
+					cursor: pointer;
+					&:hover {
+						color: @color_1;
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+	}
+}

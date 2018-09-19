@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="table">
+
+    <div class="row" *ngFor="let t of timesArray, let i = index" [ngStyle]="
+        {
+          'height': t.height + 'px',
+          'display': ((t.milliseconds >= dayStart.milliseconds)&&(t.milliseconds <= dayEnd.milliseconds)) ? '' : 'none',
+          'border-top': (t.milliseconds % (hour * 6) == 0) ? '': ''
+        }
+      ">
+      {{t.timeString}}
+    </div>
+
+    <div class="boxes">
+      <div class="card" *ngFor="let task of boxes" [ngStyle]="
+          {
+            'top': task.start / hour * hourHeight - dayStart.milliseconds / hour * hourHeight + 'px',
+            'height': task.timeConsumption / hour * hourHeight + 'px',
+            'line-height': task.timeConsumption / hour * hourHeight + 'px'
+          }" [ngClass]="{
+            'left': true
+          }">
+        <span class="title">{{task.title}}</span>
+      </div>
+      <div class="event" *ngFor="let event of events" [ngStyle]="
+          {
+            'top': event.time / hour * hourHeight - dayStart.milliseconds / hour * hourHeight + 'px',
+            'height': event.timeConsumption / hour * hourHeight + 'px',
+            'line-height': event.timeConsumption / hour * hourHeight + 'px'
+          }" [ngClass]="{
+            'left': true
+          }">
+        <span class="title">{{event.title}}</span>
+      </div>
+    </div>
+  </div>
+</div>

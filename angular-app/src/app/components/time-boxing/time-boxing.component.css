@@ -1,0 +1,99 @@
+/*# sourceMappingURL=time-boxing.component.css.map */
+.container .clock {
+  text-align: center;
+}
+.container .clock > div {
+  display: inline-block;
+}
+.container .meta {
+  padding: 5px 10%;
+}
+.container .table {
+  position: relative;
+}
+.container .table .row {
+  border-top: 0.5px solid lightgray;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.container .table .row:last-child {
+  border-bottom: 0.5px solid rgba(30, 30, 30, 0.8);
+}
+.container .table .boxes {
+  height: 100%;
+  background-image: repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.025), rgba(0, 0, 0, 0.025) 10px, rgba(10, 80, 15, 0.08) 10px, rgba(10, 80, 15, 0.08) 20px);
+  position: absolute;
+  top: 0;
+  left: 60px;
+  right: 0;
+}
+.container .table .boxes .card {
+  background: white;
+  border: 0.5px solid lightgray;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  position: absolute;
+  overflow: hidden;
+  text-align: center;
+}
+.container .table .boxes .card.left {
+  left: 0;
+  right: 50%;
+}
+.container .table .boxes .card.right {
+  left: 50%;
+  right: 0;
+}
+.container .table .boxes .card:hover {
+  z-index: 10;
+}
+.container .table .boxes .card .title {
+  text-align: center;
+  cursor: pointer;
+}
+.container .table .boxes .card .title:hover {
+  color: #1a0dab;
+  text-decoration: underline;
+}
+.container .table .boxes .event {
+  background: transparent;
+  border-top: 0.5px solid red;
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  position: absolute;
+  overflow: visible;
+  z-index: 5;
+  height: 1px;
+}
+.container .table .boxes .event.left {
+  left: 0;
+  text-align: left;
+}
+.container .table .boxes .event.right {
+  right: 0;
+  text-align: right;
+}
+.container .table .boxes .event:hover {
+  overflow: visible;
+  z-index: 10;
+}
+.container .table .boxes .event .title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  max-width: 100%;
+  text-align: inherit;
+  height: 16px;
+  line-height: 16px;
+  cursor: pointer;
+}
+.container .table .boxes .event .title:hover {
+  color: #1a0dab;
+  text-decoration: underline;
+}

@@ -1,0 +1,69 @@
+<div class="container">
+
+    <h2 class="title">
+        {{task.title.length > 0 ? task.title: 'Нет задачи'}}
+    </h2>
+
+    <div class="display-time-left">
+        {{task.time | TimeFromMillisecondsPipe}}
+    </div>
+
+    <div class="control">
+        <div class="my btn" *ngIf="!readyToStart && !working" (click)="newTask()">
+            <i class="fas fa-plus" *ngIf="!working"></i>
+            Новая задача
+        </div>
+        <div class="my btn" *ngIf="readyToStart && !working" (click)="start()">
+            <i class="far fa-play-circle" *ngIf="!working"></i>
+            Старт
+        </div>
+        <div class="my btn" *ngIf="working" (click)="drop(true)">
+            <i class="far fa-stop-circle" *ngIf="working"></i>
+            Сбросить
+        </div>
+    </div>
+
+    <div class="end-of-timer" *ngIf="mark !== null">
+        <div class="result">
+            <div class="my btn" *ngFor="let i of [1, 2, 3, 4, 5]" (click)="setMark(i)">
+                <!-- fas => сплошной -->
+                <i [ngClass]="{
+                    'fas': mark >= i,
+                    'far': ! (mark >= i),
+                    'fa-star': true
+                }" [ngStyle]="{
+                    'color': mark >= i ? 'gold': 'lightgray'
+                }"></i>
+            </div>
+        </div>
+
+        <div class="my btn" (click)="save()">
+            Сохранить
+        </div>
+    </div>
+
+</div>
+
+<div class="new-task-window" [ngStyle]="{
+    'display': displayNewTaskWindow ? 'block': 'none'
+}">
+    <div class="background">
+        <div class="content">
+            <div class="spacer"></div>
+            <div>
+                <input class="set-title" type="text" [(ngModel)]="task.title" placeholder="Заголовок">
+            </div>
+            <div>
+                <span class="display-time">{{task.time | TimeFromMillisecondsPipe}} </span>
+            </div>
+            <div>
+                <input [attr.disabled]="working ? '': null" class="set-time" type="range" min="0" max="7200000" step="300000" value="0" [(ngModel)]="task.time">
+            </div>
+            <div>
+                <div class="my btn" (click)="setTask()">
+                    Сохранить задачу
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

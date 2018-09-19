@@ -1,0 +1,11 @@
+#!/usr/bin/env node
+var debug = require('debug')('flapper-news');
+var app = require('../app');
+var config = require('../config');
+var winston = require('winston');
+
+var logger = winston.loggers.get('logger1');
+
+var server = app.listen(8080, function () {
+  console.log('Express server listening on ' + server.address().port);
+});

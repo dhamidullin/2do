@@ -1,0 +1,39 @@
+<app-today></app-today>
+<div class="container">
+  <div class="control">
+    <div class="ctrl daily">
+      <label>
+        <input type="checkbox" [(ngModel)]="hidePast" style="display: none"> {{hidePast ? 'Показать прошедшые': 'Скрыть
+        прошедшие'}}
+      </label>
+    </div>
+  </div>
+
+  <div class="tasks-list">
+    <div class="task" *ngFor="let task of tasks, let i = index" [ngStyle]="{
+      'display': hidePast && isPast(task.datetime) ? 'none': null
+    }"
+      [ngClass]="{
+      'today': isToday(task.datetime)
+    }">
+      <!-- <div class="border"></div> -->
+      <div class="date">{{task.datetime | date:'dd.MM.yyyy HH:mm'}}</div>
+      <div class="title">
+        {{task.title}}
+      </div>
+      <!-- <div class="border"></div> -->
+      <div class="buttons">
+        <div class="my btn" [routerLink]="task._id">
+          <i class="fas fa-pencil-alt"></i>
+        </div>
+        <div class="my btn" (click)="deleteTask(task._id)">
+          <i class="far fa-trash-alt"></i>
+        </div>
+      </div>
+    </div>
+    <div class="add-button">
+      <a [routerLink]="'new'">Новая задача...</a>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

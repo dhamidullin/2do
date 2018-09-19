@@ -1,0 +1,45 @@
+.new-task {
+  z-index: 8;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.65);
+}
+.new-task .content {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 5%;
+  bottom: 15%;
+  background: white;
+  border: 3px solid black;
+  flex-direction: column;
+  text-align: center;
+  user-select: none;
+}
+.new-task .content .close-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 4vw;
+  width: 4vw;
+  line-height: 4vw;
+  text-align: center;
+  font-size: 200%;
+  cursor: pointer;
+  color: #270606;
+}
+.new-task .content .close-btn:hover {
+  color: #781010;
+}
+.new-task .content .title input {
+  width: 50%;
+}
+.new-task .content .date-time input {
+  width: 50%;
+}
+.new-task .content .error-message {
+  color: red;
+}

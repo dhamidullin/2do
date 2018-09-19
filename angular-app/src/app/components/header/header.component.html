@@ -1,0 +1,48 @@
+<div class="header">
+  <div class="logo">
+    <a routerLink="/">{{logo}}</a>
+  </div>
+
+  <div class="spacer"></div>
+
+  <div class="header-right">
+
+    <a routerLink="home">
+      <i class="fas fa-home"></i>
+    </a>
+
+    <!-- <a routerLink="pomodoro">
+      Таймер
+    </a> -->
+
+    <!-- <a routerLink="board" *ngIf="auth.isLoggedIn">
+      Доска
+    </a> -->
+
+    <a routerLink="notes" *ngIf="auth.isLoggedIn">
+      Заметки
+    </a>
+
+    <a routerLink="tasks" *ngIf="auth.isLoggedIn">
+      Задачи
+    </a>
+    <a routerLink="daily-tasks" *ngIf="auth.isLoggedIn">
+      Ежедневные задачи
+    </a>
+    <!-- <a routerLink="today" *ngIf="auth.isLoggedIn">
+      Сегодня
+    </a> -->
+
+    <a routerLink="login" *ngIf="!auth.isLoggedIn">
+      Вход
+    </a>
+    <a routerLink="register" *ngIf="!auth.isLoggedIn">
+      Регистрация
+    </a>
+    <span (click)="auth.logOut()" *ngIf="auth.isLoggedIn">
+      Выйти
+    </span>
+
+  </div>
+
+</div>

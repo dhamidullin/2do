@@ -1,0 +1,102 @@
+.container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+.container .control {
+  background: #e7e7e7;
+  border: 1px solid lightgray;
+  border-top: none;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  display: inline-flex;
+}
+.container .control .ctrl {
+  flex-grow: 1;
+  padding: 0 10%;
+  user-select: none;
+}
+.container .control .ctrl.daily label {
+  text-decoration: underline;
+}
+.container .control .ctrl.daily label:hover {
+  color: #0000ee;
+  text-decoration: underline;
+  transition: 90ms;
+}
+.container .control .ctrl span {
+  text-decoration: underline;
+}
+.container .control .ctrl span i {
+  display: inline-block;
+  margin-left: 5px;
+}
+.container .control .ctrl span:hover {
+  color: #0000ee;
+  text-decoration: underline;
+  transition: 90ms;
+}
+.container .tasks-list {
+  width: 100%;
+  padding: 1vw 3%;
+}
+.container .tasks-list .task {
+  margin-top: 1vw;
+  border-left: 1px solid gray;
+  position: relative;
+}
+.container .tasks-list .task::before,
+.container .tasks-list .task::after {
+  display: block;
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, gray, lightgray, transparent);
+  content: "";
+}
+.container .tasks-list .task .date,
+.container .tasks-list .task .title {
+  padding: 0.2vw;
+  padding-left: 0.5vw;
+}
+.container .tasks-list .task .date {
+  background: linear-gradient(90deg, rgba(201, 201, 201, 0.6), transparent);
+  font-size: 75%;
+}
+.container .tasks-list .task .title {
+  background: linear-gradient(90deg, rgba(201, 201, 201, 0.4), transparent);
+  font-size: 115%;
+  position: relative;
+}
+.container .tasks-list .task .buttons {
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 25%;
+  opacity: 0;
+  width: 120px;
+}
+.container .tasks-list .task .buttons .my.btn {
+  margin: 0 4px;
+}
+.container .tasks-list .task:hover .buttons {
+  opacity: 1;
+}
+.container .tasks-list .task.today {
+  border-left: 1px solid crimson;
+}
+.container .tasks-list .task.today::before,
+.container .tasks-list .task.today::after {
+  background: linear-gradient(90deg, darkred, transparent 40%);
+}
+.container .tasks-list .add-button {
+  padding: 0.5vw;
+  margin-top: 1vw;
+}
+.container .tasks-list .add-button span:hover {
+  cursor: pointer;
+  color: #0000ee;
+  text-decoration: underline;
+  transition: 90ms;
+}

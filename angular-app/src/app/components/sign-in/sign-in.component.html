@@ -1,0 +1,30 @@
+<form (submit)="login()">
+  <div class="container">
+    <h1>Вход</h1>
+    <!-- <p>Please fill in this form to create an account.</p> -->
+    <hr>
+
+    <label for="username"><b>Username</b></label>
+    <input type="text" placeholder="Enter username" name="username" required [(ngModel)]="user.username"
+      (ngModelChange)="clearError()" pattern="[a-zA-Z0-9_]{4,32}" #username="ngModel" [ngStyle]="{
+      border: username.valid ? '1px solid green': null
+    }">
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required [(ngModel)]="user.password" (ngModelChange)="clearError()"
+      pattern="[a-zA-Z0-9_]{6,32}" #psw="ngModel" [ngStyle]="{
+      border: psw.valid ? '1px solid green': null
+    }">
+    <div class="error-message">
+      {{errorMessage}}
+    </div>
+    <hr>
+    <!-- <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p> -->
+
+    <button type="submit" class="registerbtn">Войти</button>
+  </div>
+
+  <div class="container signin">
+    <p>Нет аккантка? <a [routerLink]="['/register']">Зарегестрируйтесь.</a>.</p>
+  </div>
+</form>

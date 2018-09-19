@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="space" (click)="saveAndClose()"></div>
+  <div class="content" *ngIf="note">
+
+    <div class="close-btn" (click)="saveAndClose()">
+      <i class="far fa-times-circle"></i>
+    </div>
+
+    <h3 class="title" role="textbox" contenteditable="true" aria-multiline="true" [innerHtml]="title" (input)="note.title=$event.srcElement.innerHTML; changed = true"></h3>
+    <hr>
+
+    <div class="body" role="textbox" contenteditable="true" aria-multiline="true" [textContent]="body" (input)="note.body=$event.srcElement.innerHTML; changed = true"></div>
+
+    <!-- <p>{{note | json}}</p> -->
+
+  </div>
+</div>

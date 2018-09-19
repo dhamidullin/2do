@@ -1,0 +1,31 @@
+<div class="new-task">
+  <div class="content">
+    <div class="close-btn" [routerLink]="'../'">
+      <i class="far fa-times-circle"></i>
+    </div>
+
+    <h3>Добавить новую ежедневную задачу</h3>
+    <form (submit)="saveDailyTask()" *ngIf="dailyTask">
+      <p class="title">
+        Title
+        <input type="text" name="title" id="title" [(ngModel)]="dailyTask.title">
+      </p>
+
+      <p>
+        <input type="time" name="time" id="time" [ngModel]="dailyTask.time | date:'HH:mm'" (ngModelChange)="setDailyTaskTime($event)">
+      </p>
+      <!-- <p>миллисекунды {{dailyTask.time}}</p> -->
+      <!-- <p>по гринвичу {{dailyTask.time | date:'yyyy-MM-dd HH:mm'}}</p> -->
+      <!-- <p>{{dailyTask | json}}</p> -->
+      <p>{{dailyTask.time | date:'HH:mm'}}</p>
+      <p>
+        <input type="submit" value="Сохранить">
+      </p>
+    </form>
+    <div class="error-message">{{errorMessage}}</div>
+  </div>
+</div>
+
+<!--  [ngStyle]="{
+  'display': displaytask ? 'block': 'none'
+}" -->

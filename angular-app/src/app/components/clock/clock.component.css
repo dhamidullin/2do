@@ -1,0 +1,49 @@
+.face {
+  display: block;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  position: relative;
+}
+.face .arrow {
+  background: black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  transform-origin: center bottom;
+}
+.face .arrow.hours {
+  height: 28%;
+  width: 4%;
+}
+.face .arrow.minutes {
+  height: 40%;
+  width: 2%;
+}
+.face .arrow.seconds {
+  height: 48%;
+  width: 0%;
+  background: crimson;
+  border: 1px solid rgba(255, 0, 0, 0.342);
+}
+.face .arrow.dot {
+  width: 6%;
+  height: 6%;
+  border-radius: 50%;
+  background: red;
+}
+.face .arrow.hoursHatch {
+  height: 50%;
+  width: 1%;
+  background: transparent;
+}
+.face .arrow.hoursHatch .hatch {
+  width: 100%;
+  height: 4%;
+  background: black;
+}
+.face .arrow.hoursHatch .number {
+  width: 100%;
+  text-align: center;
+}

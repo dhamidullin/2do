@@ -1,0 +1,29 @@
+<app-today></app-today>
+<div class="container">
+  <!-- <div class="control">
+    
+  </div> -->
+
+  <div class="tasks-list">
+    <div class="task" *ngFor="let task of dailyTasks, let i = index">
+      <div class="date">
+        {{task.time | date:'dd.MM.yyyy HH:mm'}}
+      </div>
+      <div class="title">
+        {{task.title}}
+      </div>
+      <div class="buttons">
+        <div class="my btn" [routerLink]="task._id">
+          <i class="fas fa-pencil-alt"></i>
+        </div>
+        <div class="my btn" (click)="deleteDailyTask(task._id)">
+          <i class="far fa-trash-alt"></i>
+        </div>
+      </div>
+    </div>
+    <div class="add-button">
+      <a [routerLink]="'new'">Новая задача...</a>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

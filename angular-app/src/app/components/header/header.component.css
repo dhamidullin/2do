@@ -1,0 +1,43 @@
+.header {
+  width: 100%;
+  display: inline-flex;
+  background: #f1f1f1;
+  padding: 15px 30px;
+  padding-left: 38px;
+  border-bottom: 1px solid lightgray;
+  user-select: none;
+}
+.header .logo {
+  flex-grow: 0;
+  font-size: 25px;
+  cursor: pointer;
+}
+.header span,
+.header a {
+  color: black;
+  text-decoration: none;
+}
+.header span:hover,
+.header a:hover {
+  color: #0000ee;
+  text-decoration: underline;
+  transition: 90ms;
+}
+.header .spacer {
+  flex-grow: 1;
+}
+.header .header-right {
+  flex-grow: 0;
+}
+.header .header-right::before {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+.header .header-right span,
+.header .header-right a {
+  display: inline-block;
+  padding: 0 10px;
+  cursor: pointer;
+}

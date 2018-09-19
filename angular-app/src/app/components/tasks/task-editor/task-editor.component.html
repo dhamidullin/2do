@@ -1,0 +1,32 @@
+<div class="new-task">
+  <div class="content">
+    <div class="close-btn" [routerLink]="'../'">
+      <i class="far fa-times-circle"></i>
+    </div>
+
+    <h3>Добавить новую задачу</h3>
+    <form (submit)="savetask()" *ngIf="task">
+      <p class="title">
+        Title
+        <input type="text" name="title" id="title" [(ngModel)]="task.title">
+      </p>
+
+      <p>
+        <input type="datetime-local" name="datetime" id="datetime" [ngModel]="task.datetime | date:'yyyy-MM-ddTHH:mm'"
+          (ngModelChange)="setTaskTime($event)">
+      </p>
+      <!-- <p>местное {{task.datetime - timezoneOffset | date:'yyyy-MM-dd HH:mm'}}</p> -->
+      <!-- <p>по гринвичу {{task.datetime | date:'yyyy-MM-dd HH:mm'}}</p> -->
+
+      <p>
+        <input type="submit" value="Сохранить">
+      </p>
+    </form>
+
+    <div class="error-message">{{errorMessage}}</div>
+  </div>
+</div>
+
+<!--  [ngStyle]="{
+  'display': displaytask ? 'block': 'none'
+}" -->

@@ -1,0 +1,51 @@
+<div class="container">
+  {{timezone}}
+  <div class="this-day">
+    <div class="hour-hatch" *ngFor="let ar of arr24, let i = index" [ngStyle]="{
+      'left': ((i - dayStart) / (24 - dayStart - (24 - dayEnd))) * 100 + '%'
+    }">
+      <div class="time" [ngStyle]="{
+        'transform': 'translateX(' + ( -i + dayEnd-1 ) / ( dayEnd-1 - dayStart-1 ) * 100  + '%)'
+      }">{{i}}:00</div>
+      <!-- y = ( - x  + dayEnd ) / ( dayEnd - dayStart )
+      это функция для вычисления смещения относительно экрана.
+      лейблы со временем слева по бокам смещаются к центру
+      правда это выглядит не так красиво как ожидалось
+      но я потратил на это немало времени... -->
+    </div>
+
+    <!-- <div class="task" *ngFor="let task of tasks, let i = index" [ngStyle]="{
+      'left': ((getTime(task.datetime) / hour - dayStart) / (24 - dayStart - (24 - dayEnd))) * 100 + '%'
+    }">
+      <div class="label" [ngStyle]="{
+        'top': i % levels * 90 / levels + '%'
+      }">{{task.title}}
+        <div class="border-bottom"></div>
+      </div>
+    </div> -->
+
+    <!-- <div class="task" *ngFor="let task of dailyTasks, let i = index" [ngStyle]="{
+      'left': ((getTime(task.time) / hour - dayStart) / (24 - dayStart - (24 - dayEnd))) * 100 + '%'
+    }" [ngClass]="{
+      'daily': true
+    }">
+      <div class="label" [ngStyle]="{
+        'top': i % levels * 90 / levels + '%'
+      }">{{task.title}}
+        <div class="border-bottom"></div>
+      </div>
+    </div> -->
+
+    <div class="task" *ngFor="let task of allTasks, let i = index" [ngStyle]="{
+      'left': task.left + '%'
+    }" [ngClass]="{
+      'daily': task.daily
+    }">
+      <div class="label" [ngStyle]="{
+        'top': task.top + '%'
+      }">{{task.title}}
+        <div class="border-bottom"></div>
+      </div>
+    </div>
+
+  </div>

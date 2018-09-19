@@ -1,0 +1,33 @@
+<div *ngIf="debug">
+  <p>{{datenow}}</p>
+  <p>{{now}}</p>
+  <p>{{hDeg}}</p>
+  <p>{{mDeg}}</p>
+  <p>{{sDeg}}</p>
+</div>
+<div class="face" [ngStyle]="{
+    'height': size + 'px',
+    'width': size + 'px'
+  }">
+  <div class="arrow seconds" [ngStyle]="{
+      'transform': 'translateX(-50%) translateY(-100%) rotate(' + sDeg + 'deg)'
+    }"></div>
+  <div class="arrow minutes" [ngStyle]="{
+      'transform': 'translateX(-50%) translateY(-100%) rotate(' + mDeg + 'deg)'
+    }"></div>
+  <div class="arrow hours" [ngStyle]="{
+      'transform': 'translateX(-50%) translateY(-100%) rotate(' + hDeg + 'deg)'
+    }"></div>
+  <div class="arrow dot"></div>
+  <div class="arrow hoursHatch" *ngFor="let a of arr60, let i = index" [ngStyle]="{
+      'transform': 'translateX(-50%) translateY(-100%) rotate(' + i * 6 + 'deg)',
+      'width': i % 5 == 0 ? '3px': ''
+    }">
+    <div class="hatch" [ngStyle]="{
+      'height': i % 5 == 0 ? '6%': ''
+    }"></div>
+    <div class="number" *ngIf="i % 5 == 0" [ngStyle]="{
+        'transform': 'translateX(0%) rotate(-' + i * 6 + 'deg)'
+      }">{{(i / 5 == 0 ? '12': i / 5)}}</div>
+  </div>
+</div>
